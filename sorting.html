@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sorting Visualizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="single-view-body">
+  <div class="page-shell">
+    <header class="floating-nav">
+      <div class="brand-block">
+        <span class="brand-mark">DSA</span>
+        <div>
+          <h1>Sorting Visualizer</h1>
+          <p>Animated walkthroughs for comparison-based sorting</p>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="stack.html">Stack</a>
+        <a href="queue.html">Queue</a>
+        <a href="graph.html">Graph</a>
+      </nav>
+    </header>
+
+    <main class="main-grid single-view-main">
+      <section class="visualizer-section glass-card single-view-card">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Sorting Visualizer</p>
+            <h3>Compare algorithms through animated bar transformations</h3>
+          </div>
+          <div class="complexity-card" id="sorting-complexity">
+            <h4>Complexity</h4>
+            <p><span>Time:</span> O(n^2)</p>
+            <p><span>Space:</span> O(1)</p>
+          </div>
+        </div>
+
+        <div class="control-grid">
+          <label class="control-field">
+            <span>Algorithm</span>
+            <select id="sorting-algorithm">
+              <option value="bubble">Bubble Sort</option>
+              <option value="selection">Selection Sort</option>
+              <option value="insertion">Insertion Sort</option>
+              <option value="merge">Merge Sort</option>
+              <option value="quick">Quick Sort</option>
+            </select>
+          </label>
+          <label class="control-field">
+            <span>Array Size</span>
+            <input id="array-size" type="range" min="10" max="80" value="36">
+          </label>
+          <label class="control-field">
+            <span>Speed</span>
+            <input id="sorting-speed" type="range" min="1" max="100" value="55">
+          </label>
+          <div class="action-group">
+            <button id="sorting-randomize" class="accent-btn">Randomize</button>
+            <button id="sorting-start" class="primary-btn">Start</button>
+            <button id="sorting-pause" class="secondary-btn">Pause</button>
+            <button id="sorting-reset" class="secondary-btn">Reset</button>
+          </div>
+        </div>
+
+        <div class="visual-panel">
+          <div class="bars-container" id="bars-container" aria-label="Sorting bars"></div>
+          <aside class="info-panel">
+            <div class="info-block">
+              <h4>Current Step</h4>
+              <p id="sorting-step">Generate a random array and choose an algorithm to begin.</p>
+            </div>
+            <div class="info-block">
+              <h4>Status</h4>
+              <p id="sorting-status">Idle</p>
+            </div>
+            <div class="info-block">
+              <h4>Legend</h4>
+              <p>Blue: default bars</p>
+              <p>Gold: comparing</p>
+              <p>Rose: swapping or pivot</p>
+              <p>Mint: sorted</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

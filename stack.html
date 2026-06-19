@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stack Visualizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="single-view-body">
+  <div class="page-shell">
+    <header class="floating-nav">
+      <div class="brand-block">
+        <span class="brand-mark">DSA</span>
+        <div>
+          <h1>Stack Visualizer</h1>
+          <p>See LIFO operations update in real time</p>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="sorting.html">Sorting</a>
+        <a href="queue.html">Queue</a>
+        <a href="graph.html">Graph</a>
+      </nav>
+    </header>
+
+    <main class="main-grid single-view-main">
+      <section class="visualizer-section glass-card single-view-card">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Stack Visualizer</p>
+            <h3>Push, pop, and peek with a vertical LIFO view</h3>
+          </div>
+          <div class="complexity-card">
+            <h4>Complexity</h4>
+            <p><span>Push / Pop / Peek:</span> O(1)</p>
+            <p><span>Space:</span> O(n)</p>
+          </div>
+        </div>
+
+        <div class="control-grid stack-controls">
+          <label class="control-field">
+            <span>Value</span>
+            <input id="stack-input" type="text" maxlength="8" placeholder="e.g. 42">
+          </label>
+          <label class="control-field">
+            <span>Capacity</span>
+            <input id="stack-capacity" type="number" min="3" max="12" value="7">
+          </label>
+          <div class="action-group">
+            <button id="stack-push" class="primary-btn">Push</button>
+            <button id="stack-pop" class="secondary-btn">Pop</button>
+            <button id="stack-peek" class="accent-btn">Peek</button>
+            <button id="stack-reset" class="secondary-btn">Reset</button>
+            <button id="stack-random" class="secondary-btn">Random Fill</button>
+          </div>
+        </div>
+
+        <div class="dual-panel">
+          <div class="stack-container" id="stack-container"></div>
+          <aside class="info-panel">
+            <div class="info-block">
+              <h4>Step</h4>
+              <p id="stack-step">The stack is empty and ready for operations.</p>
+            </div>
+            <div class="info-block">
+              <h4>Top Value</h4>
+              <p id="stack-top">None</p>
+            </div>
+            <div class="info-block status-block">
+              <h4>Message</h4>
+              <p id="stack-message">No errors.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

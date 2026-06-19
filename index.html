@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DSA Visualizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="floating-nav">
+      <div class="brand-block">
+        <span class="brand-mark">DSA</span>
+        <div>
+          <h1>Visualizer Studio</h1>
+          <p>Interactive algorithms and data structures in motion</p>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="#sorting">Sorting</a>
+        <a href="#stack">Stack</a>
+        <a href="#queue">Queue</a>
+        <a href="#graph">Graph</a>
+      </nav>
+    </header>
+
+    <main class="main-grid">
+      <section id="sorting" class="visualizer-section glass-card nav-card" data-href="sorting.html" tabindex="0" role="link" aria-label="Open Sorting visualizer page">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Sorting Visualizer</p>
+            <h3>Compare algorithms through animated bar transformations</h3>
+          </div>
+          <div class="section-actions">
+            <a class="open-page-btn" href="sorting.html">Open Page</a>
+            <div class="complexity-card" id="sorting-complexity">
+              <h4>Complexity</h4>
+              <p><span>Time:</span> O(n^2)</p>
+              <p><span>Space:</span> O(1)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-grid">
+          <label class="control-field">
+            <span>Algorithm</span>
+            <select id="sorting-algorithm">
+              <option value="bubble">Bubble Sort</option>
+              <option value="selection">Selection Sort</option>
+              <option value="insertion">Insertion Sort</option>
+              <option value="merge">Merge Sort</option>
+              <option value="quick">Quick Sort</option>
+            </select>
+          </label>
+
+          <label class="control-field">
+            <span>Array Size</span>
+            <input id="array-size" type="range" min="10" max="80" value="36">
+          </label>
+
+          <label class="control-field">
+            <span>Speed</span>
+            <input id="sorting-speed" type="range" min="1" max="100" value="55">
+          </label>
+
+          <div class="action-group">
+            <button id="sorting-randomize" class="accent-btn">Randomize</button>
+            <button id="sorting-start" class="primary-btn">Start</button>
+            <button id="sorting-pause" class="secondary-btn">Pause</button>
+            <button id="sorting-reset" class="secondary-btn">Reset</button>
+          </div>
+        </div>
+
+        <div class="visual-panel">
+          <div class="bars-container" id="bars-container" aria-label="Sorting bars"></div>
+          <aside class="info-panel">
+            <div class="info-block">
+              <h4>Current Step</h4>
+              <p id="sorting-step">Generate a random array and choose an algorithm to begin.</p>
+            </div>
+            <div class="info-block">
+              <h4>Status</h4>
+              <p id="sorting-status">Idle</p>
+            </div>
+            <div class="info-block">
+              <h4>Legend</h4>
+              <p>Blue: default bars</p>
+              <p>Gold: comparing</p>
+              <p>Rose: swapping or pivot</p>
+              <p>Mint: sorted</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="stack" class="visualizer-section glass-card nav-card" data-href="stack.html" tabindex="0" role="link" aria-label="Open Stack visualizer page">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Stack Visualizer</p>
+            <h3>Push, pop, and peek with a vertical LIFO view</h3>
+          </div>
+          <div class="section-actions">
+            <a class="open-page-btn" href="stack.html">Open Page</a>
+            <div class="complexity-card">
+              <h4>Complexity</h4>
+              <p><span>Push / Pop / Peek:</span> O(1)</p>
+              <p><span>Space:</span> O(n)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-grid stack-controls">
+          <label class="control-field">
+            <span>Value</span>
+            <input id="stack-input" type="text" maxlength="8" placeholder="e.g. 42">
+          </label>
+          <label class="control-field">
+            <span>Capacity</span>
+            <input id="stack-capacity" type="number" min="3" max="12" value="7">
+          </label>
+          <div class="action-group">
+            <button id="stack-push" class="primary-btn">Push</button>
+            <button id="stack-pop" class="secondary-btn">Pop</button>
+            <button id="stack-peek" class="accent-btn">Peek</button>
+            <button id="stack-reset" class="secondary-btn">Reset</button>
+            <button id="stack-random" class="secondary-btn">Random Fill</button>
+          </div>
+        </div>
+
+        <div class="dual-panel">
+          <div class="stack-container" id="stack-container"></div>
+          <aside class="info-panel">
+            <div class="info-block">
+              <h4>Step</h4>
+              <p id="stack-step">The stack is empty and ready for operations.</p>
+            </div>
+            <div class="info-block">
+              <h4>Top Value</h4>
+              <p id="stack-top">None</p>
+            </div>
+            <div class="info-block status-block">
+              <h4>Message</h4>
+              <p id="stack-message">No errors.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="queue" class="visualizer-section glass-card nav-card" data-href="queue.html" tabindex="0" role="link" aria-label="Open Queue visualizer page">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Queue Visualizer</p>
+            <h3>Track FIFO operations with front and rear indicators</h3>
+          </div>
+          <div class="section-actions">
+            <a class="open-page-btn" href="queue.html">Open Page</a>
+            <div class="complexity-card">
+              <h4>Complexity</h4>
+              <p><span>Enqueue / Dequeue:</span> O(1)</p>
+              <p><span>Space:</span> O(n)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-grid stack-controls">
+          <label class="control-field">
+            <span>Value</span>
+            <input id="queue-input" type="text" maxlength="8" placeholder="e.g. A1">
+          </label>
+          <label class="control-field">
+            <span>Capacity</span>
+            <input id="queue-capacity" type="number" min="4" max="12" value="8">
+          </label>
+          <div class="action-group">
+            <button id="queue-enqueue" class="primary-btn">Enqueue</button>
+            <button id="queue-dequeue" class="secondary-btn">Dequeue</button>
+            <button id="queue-reset" class="secondary-btn">Reset</button>
+            <button id="queue-random" class="accent-btn">Random Fill</button>
+          </div>
+        </div>
+
+        <div class="dual-panel">
+          <div class="queue-container" id="queue-container"></div>
+          <aside class="info-panel">
+            <div class="info-block">
+              <h4>Step</h4>
+              <p id="queue-step">The queue is empty and waiting for input.</p>
+            </div>
+            <div class="info-block">
+              <h4>Pointers</h4>
+              <p id="queue-pointers">Front: None | Rear: None</p>
+            </div>
+            <div class="info-block status-block">
+              <h4>Message</h4>
+              <p id="queue-message">No errors.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section id="graph" class="visualizer-section glass-card nav-card" data-href="graph.html" tabindex="0" role="link" aria-label="Open Graph visualizer page">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Graph Visualizer</p>
+            <h3>Traverse a connected graph with BFS and DFS animations</h3>
+          </div>
+          <div class="section-actions">
+            <a class="open-page-btn" href="graph.html">Open Page</a>
+            <div class="complexity-card" id="graph-complexity">
+              <h4>Complexity</h4>
+              <p><span>Time:</span> O(V + E)</p>
+              <p><span>Space:</span> O(V)</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="control-grid graph-controls">
+          <label class="control-field">
+            <span>Traversal</span>
+            <select id="graph-algorithm">
+              <option value="bfs">Breadth First Search</option>
+              <option value="dfs">Depth First Search</option>
+            </select>
+          </label>
+          <label class="control-field">
+            <span>Start Node</span>
+            <select id="graph-start-node"></select>
+          </label>
+          <label class="control-field">
+            <span>Speed</span>
+            <input id="graph-speed" type="range" min="1" max="100" value="50">
+          </label>
+          <div class="action-group">
+            <button id="graph-start" class="primary-btn">Start</button>
+            <button id="graph-pause" class="secondary-btn">Pause</button>
+            <button id="graph-reset" class="secondary-btn">Reset</button>
+            <button id="graph-random" class="accent-btn">Shuffle Layout</button>
+          </div>
+        </div>
+
+        <div class="visual-panel graph-panel">
+          <div class="graph-stage">
+            <svg id="graph-svg" viewBox="0 0 800 420" aria-label="Graph visualizer"></svg>
+          </div>
+          <aside class="info-panel">
+            <div class="info-block">
+              <h4>Traversal Step</h4>
+              <p id="graph-step">Choose BFS or DFS and pick a starting node.</p>
+            </div>
+            <div class="info-block">
+              <h4>Visited Order</h4>
+              <p id="graph-order">None</p>
+            </div>
+            <div class="info-block">
+              <h4>Legend</h4>
+              <p>Blue: idle nodes</p>
+              <p>Gold: frontier / active</p>
+              <p>Mint: visited</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

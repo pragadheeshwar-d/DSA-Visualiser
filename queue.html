@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Queue Visualizer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="single-view-body">
+  <div class="page-shell">
+    <header class="floating-nav">
+      <div class="brand-block">
+        <span class="brand-mark">DSA</span>
+        <div>
+          <h1>Queue Visualizer</h1>
+          <p>Watch FIFO operations with live front and rear pointers</p>
+        </div>
+      </div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="sorting.html">Sorting</a>
+        <a href="stack.html">Stack</a>
+        <a href="graph.html">Graph</a>
+      </nav>
+    </header>
+
+    <main class="main-grid single-view-main">
+      <section class="visualizer-section glass-card single-view-card">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow">Queue Visualizer</p>
+            <h3>Track FIFO operations with front and rear indicators</h3>
+          </div>
+          <div class="complexity-card">
+            <h4>Complexity</h4>
+            <p><span>Enqueue / Dequeue:</span> O(1)</p>
+            <p><span>Space:</span> O(n)</p>
+          </div>
+        </div>
+
+        <div class="control-grid stack-controls">
+          <label class="control-field">
+            <span>Value</span>
+            <input id="queue-input" type="text" maxlength="8" placeholder="e.g. A1">
+          </label>
+          <label class="control-field">
+            <span>Capacity</span>
+            <input id="queue-capacity" type="number" min="4" max="12" value="8">
+          </label>
+          <div class="action-group">
+            <button id="queue-enqueue" class="primary-btn">Enqueue</button>
+            <button id="queue-dequeue" class="secondary-btn">Dequeue</button>
+            <button id="queue-reset" class="secondary-btn">Reset</button>
+            <button id="queue-random" class="accent-btn">Random Fill</button>
+          </div>
+        </div>
+
+        <div class="dual-panel">
+          <div class="queue-container" id="queue-container"></div>
+          <aside class="info-panel">
+            <div class="info-block">
+              <h4>Step</h4>
+              <p id="queue-step">The queue is empty and waiting for input.</p>
+            </div>
+            <div class="info-block">
+              <h4>Pointers</h4>
+              <p id="queue-pointers">Front: None | Rear: None</p>
+            </div>
+            <div class="info-block status-block">
+              <h4>Message</h4>
+              <p id="queue-message">No errors.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
